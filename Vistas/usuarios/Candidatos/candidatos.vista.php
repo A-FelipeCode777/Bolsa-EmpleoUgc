@@ -58,7 +58,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example2" class="table table-bordered table-hover">
-                                <thead class="table-warning">
+                                <thead class="table-success">
                                     <tr>
                                         <th>id</th>
                                         <th>Nombres</th>

@@ -31,10 +31,10 @@
                                  <!-- the events -->
                                  <div id="external-events">
                                      <div class="external-event bg-success">Reuniones</div>
-                                     <div class="external-event bg-warning">Capacitaciones</div>
-                                     <div class="external-event bg-info">Asesorias</div>
-                                     <div class="external-event bg-primary">Talleres</div>
-                                     <div class="external-event bg-danger">Ferias</div>
+                                     <div class="external-event bg-success">Capacitaciones</div>
+                                     <div class="external-event bg-success">Asesorias</div>
+                                     <div class="external-event bg-success">Talleres</div>
+                                     <div class="external-event bg-success">Ferias</div>
                                      
                                  </div>
                              </div>

@@ -55,7 +55,7 @@
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example2" class="table table-bordered table-hover">
-                <thead class="table-primary">
+                <thead class="table-success">
                   <tr>
                     <th>Nombre del Usuario</th>
                     <th>Correo Institucional</th>
