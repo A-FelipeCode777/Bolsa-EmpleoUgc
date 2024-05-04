@@ -27,6 +27,7 @@ class RutasControlador {
             echo "Error: La ruta del formulario no es válida.";
         }
     }
+
 }
 
 ?>
