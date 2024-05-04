@@ -1,3 +1,7 @@
+<?php
+require_once "./Controladores/pofertas/pofertas.controller.php"
+
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -5,12 +9,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Crear Ofertas</h1>
+                    <h1>Ofertas</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                        <li class="breadcrumb-item active">Crear Ofertas</li>
+                        <li class="breadcrumb-item active">Oferta</li>
                     </ol>
                 </div>
             </div>
@@ -22,8 +26,8 @@
 
         <!-- Default box -->
         <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Title</h3>
+            <div class="card-header"style="background-color: seagreen;">
+                <h3 class="card-title"style="color: white;">Listado De Ofertas Disponibles</h3>
 
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -35,72 +39,73 @@
                 </div>
             </div>
             <div class="card-body">
-                Estás en la Página Para Crear Ofertas
+            En esta sección del sistema, podrá visualizar todas las ofertas laborales que han sido publicadas por las empresas registradas en nuestra base de datos.
             </div>
             <!-- /.card-body -->
 
             <!-- /.card-footer-->
         </div>
         <!-- /.card -->
+                    <!-- Default box -->
+                    <div class="card">
+                      <div class="card-header">
+                        <a href="index.php?ruta=publicar/Poferta/poferta.crear" class="btn btn-success btn-sm">Nueva Oferta</a>
+                      </div>
 
         <!-- Main content Tabla -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <!-- left column -->
-                    <div class="col-md-6">
-                        <!-- general form elements -->
-                        <div class="card card-success">
+                    <div class="col-12">
+                        <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Información de La Oferta</h3>
+                                <h3 class="card-title">Gestión de Ofertas Laborales</h3>
                             </div>
                             <!-- /.card-header -->
-                            <!-- form start -->
-                            <form>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Titulo del Trabajo</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Titulo">
-                                    </div>
-                                    <div class="input-group input-group-lg mb-3">
-                                        <div class="input-group-prepend">
-                                            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-                                                Dirigida a
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                                <li class="dropdown-item"><a href="#">Estudiantes</a></li>
-                                                <li class="dropdown-item"><a href="#">Practicas</a></li>
-                                                <li class="dropdown-item"><a href="#">Profesionales</a></li>
-                                                <li class="dropdown-divider"></li>
-                                                <li class="dropdown-item"><a href="#">Con Postgrados</a></li>
-                                            </ul>
-                                        </div>
-                                        <!-- /btn-group -->
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Descripción</label>
-                                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputFile">Cargar Archivo</label>
-                                        <div class="input-group">
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Cargue archivos png.jpg.</label>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Subir</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.card-body -->
+                            <div class="card-body">
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead class="table-success">
+                                        <tr> 
+                                            <th>Oferta Id</th>
+                                            <th>Nombre Empresa</th>
+                                            <th>Correo</th>
+                                            <th>Sector</th>
+                                            <th>Teléfono</th>
+                                            <th>Descripción</th>
+                                            <th>Dirigida a</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-success">Publicar</button>
-                                </div>
-                            </form>
+                                    <?php
+                                     $Ofertas= PofertaController::index();
+                                     foreach($Ofertas as $key => $Oferta){
+                                        echo ' <tr>
+                                        <td>'.$Oferta["oferta_id"].'</td>
+                                        <td>'.$Oferta["nombre_empresa"].'</td>
+                                        <td>'.$Oferta["correo"].'</td>
+                                        <td>'.$Oferta["sector"].'</td>
+                                        <td>'.$Oferta["telefono"].'</td>
+                                        <td>'.$Oferta["descripcion"].'</td>
+                                        <td>'.$Oferta["dirigido"].'</td>
+                                        <td>
+                                            <a href="#" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Consultar</span></a>
+                                            <a href="index.php?ruta=publicar/Poferta/poferta.editar&oferta_id='.$Oferta['oferta_id'].'" class="btn btn-primary btn-sm">
+                                                <i class="far fa-edit"></i> Editar
+                                            </a>
+                                            <a href="#" class="btn btn-danger btn-sm" Id =""><i class="fa fa-trash nav-icon"></i> <span>Eliminar</span></a>
+                                        </td>
+                                    </tr>';
+                                        
+                                     }
+                                    ?>
+                                    <!-- Otros datos de candidatos aquí -->
+                                </tbody>
+                                    
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
                     </div>

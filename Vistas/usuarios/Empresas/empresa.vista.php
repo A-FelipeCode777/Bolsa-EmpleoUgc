@@ -1,3 +1,7 @@
+<?php
+require_once "./Controladores/empresas/empresas.controller.php"
+
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -42,6 +46,11 @@
             <!-- /.card-footer-->
         </div>
         <!-- /.card -->
+                    <!-- Default box -->
+                    <div class="card">
+                      <div class="card-header">
+                        <a href="index.php?ruta=usuarios/Empresas/empresa.crear" class="btn btn-success btn-sm">Nuevo registro</a>
+                      </div>
 
         <!-- Main content Tabla -->
         <section class="content">
@@ -62,16 +71,28 @@
                                             <th>Correo</th>
                                             <th>Sector</th>
                                             <th>Teléfono</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>0123356545</td>
-                                        <td>Microsoft computer</td>
-                                        <td>microsoft15@outlook.com</td>
-                                        <td>Tecnologia</td>
-                                        <td>31600215</td>
-                                    </tr>
+
+                                    <?php
+                                     $Empresas= EmpresaController::index();
+                                     foreach($Empresas as $key => $Empresa){
+                                        echo ' <tr>
+																	<td>'.$Empresa["nit"].'</td>
+																	<td>'.$Empresa["nombre_empresa"].'</td>
+																	<td>'.$Empresa["correo"].'</td>
+																	<td>'.$Empresa["sector"].'</td>
+																	<td>'.$Empresa["telefono"].'</td>
+																	<td>
+																		<a href="#" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Consultar</a>
+																		<a href="#" class="btn btn-primary btn-sm"><i class="far fa-edit nav-icon"></i> <span></i> <span>Editar</a>
+																		<a href="#" class="btn btn-danger btn-sm" Id =""><i class="fa fa-trash nav-icon"></i> <span>Eliminar</span></a>
+																	</td>
+																</tr>';
+                                     }
+                                    ?>
                                     <!-- Otros datos de candidatos aquí -->
                                 </tbody>
                                     

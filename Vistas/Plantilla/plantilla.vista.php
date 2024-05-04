@@ -7,7 +7,8 @@
   <title>Bolsa de Empleo UGC</title>
 
   <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="./assets/temas/adminlte/plugins/fontawesome-free/css/all.css">
   <!-- fullCalendar -->
@@ -16,7 +17,8 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="./assets/temas/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.css">
+  <link rel="stylesheet"
+    href="./assets/temas/adminlte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="./assets/temas/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.css">
   <!-- JQVMap -->
@@ -33,6 +35,12 @@
   <link rel="stylesheet" href="./assets/temas/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="./assets/temas/adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.css">
   <link rel="stylesheet" href="./assets/temas/adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.css">
+
+  <!-- SweetAlert 2 -->
+  <link rel="stylesheet" href="./assets/js/sweetalert2/sweetalert2.min.css">
+
+  <!-- js para los cuadros de mensajes -->
+  <script src="./assets/js/sweetalert2/sweetalert2.all.min.js"></script>
 </head>
 <?php
 include "encabezado.vista.php";
@@ -51,7 +59,7 @@ $rutas->Rutas();
 <body class="hold-transition sidebar-mini">
 
   <!-- Site wrapper -->
-  
+
   <!--  /site wrapper fin --->
 
   <!-- jQuery -->
@@ -61,13 +69,15 @@ $rutas->Rutas();
   <!-- jQuery -->
   <script src="./assets/plugins/jquery/jquery.min.js"></script>
   <!-- Bootstrap -->
-  <script src="./assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="./assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
   <!-- jQuery UI -->
   <script src="./assets/plugins/jquery-ui/jquery-ui.min.js"></script>
   <!-- AdminLTE App -->
-  <script src="../dist/js/adminlte.min.js"></script>
+  <!-- <script src="../dist/js/adminlte.min.js"></script> -->
+  <script src="/assets/temas/adminlte/dist/js/adminlte.min.js"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="../dist/js/demo.js"></script>
+  <!-- <script src="../dist/js/demo.js"></script> -->
+  <script src="/assets/temas/adminlte/dist/js/demo.js"></script>
   <!-- Page specific script -->
 
 
@@ -82,7 +92,7 @@ $rutas->Rutas();
     $.widget.bridge('uibutton', $.ui.button)
   </script>
   <!-- Bootstrap 4 -->
-  <script src="./assets/temas/adminlte/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+  <!-- <script src="./assets/temas/adminlte/plugins/bootstrap/js/bootstrap.bundle.js"></script> -->
   <!-- AdminLTE App -->
   <script src="./assets/temas/adminlte/dist/js/adminlte.js"></script>
   <!-- ChartJS -->
@@ -94,12 +104,12 @@ $rutas->Rutas();
   <script src="./assets/temas/adminlte/plugins/jqvmap/jquery.vmap.js"></script>
   <script src="./assets/temas/adminlte/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
   <!-- jQuery Knob Chart -->
-  <script src="./assets/temas/adminlte/plugins/jquery-knob/jquery.knob.js"></script>
+  <!-- <script src="./assets/temas/adminlte/plugins/jquery-knob/jquery.knob.js"></script> -->
   <!-- daterangepicker -->
-  <script src="./assets/temas/adminlte/plugins/moment/moment.js"></script>
+  <!-- <script src="./assets/temas/adminlte/plugins/moment/moment.js"></script> -->
   <script src="./assets/temas/adminlte/plugins/daterangepicker/daterangepicker.js"></script>
   <!-- Tempusdominus Bootstrap 4 -->
-  <script src="./assets/temas/adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.js"></script>
+  <!-- <script src="./assets/temas/adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.js"></script> -->
   <!-- Summernote -->
   <script src="./assets/temas/adminlte/plugins/summernote/summernote-bs4.js"></script>
   <!-- overlayScrollbars -->
@@ -108,7 +118,7 @@ $rutas->Rutas();
   <script src="./assets/temas/adminlte/dist/js/adminlte.js"></script>
 
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="./assets/temas/adminlte/dist/js/pages/dashboard.js"></script>
+  <!-- <script src="./assets/temas/adminlte/dist/js/pages/dashboard.js"></script> -->
 
   <!-- DataTables  & Plugins -->
   <script src="./assets/temas/adminlte/plugins/datatables/jquery.dataTables.js"></script>
@@ -125,7 +135,7 @@ $rutas->Rutas();
   <script src="./assets/temas/adminlte/plugins/datatables-buttons/js/buttons.colVis.js"></script>
 
   <script>
-    $(function() {
+    $(function () {
       $("#example1").DataTable({
         "responsive": true,
         "lengthChange": false,
@@ -143,89 +153,6 @@ $rutas->Rutas();
       });
     });
   </script>
-
-
-
-  <script>
-    //- DONUT CHART -
-    //-------------
-    // Get context with jQuery - using jQuery's .get() method.
-    var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
-    var donutData = {
-      labels: [
-        'Trabajos Publicados',
-        'Candidatos registrados',
-        'Empresas Registradas',
-        'Total Usuarios registrados',
-       
-      ],
-      datasets: [{
-        data: [1865, 11619, 6263, 17876,],
-        backgroundColor: ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
-      }]
-    }
-    var donutOptions = {
-      maintainAspectRatio: false,
-      responsive: true,
-    }
-    //Create pie or douhnut chart
-    // You can switch between pie and douhnut using the method below.
-    new Chart(donutChartCanvas, {
-      type: 'doughnut',
-      data: donutData,
-      options: donutOptions
-    })
-
-    //- BAR CHART -
-    //-------------
-    var areaChartData = {
-      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
-      datasets: [{
-          label: 'Candidatos Contratados',
-          backgroundColor: 'rgba(60,141,188,0.9)',
-          borderColor: 'rgba(60,141,188,0.8)',
-          pointRadius: false,
-          pointColor: '#3b8bba',
-          pointStrokeColor: 'rgba(60,141,188,1)',
-          pointHighlightFill: '#fff',
-          pointHighlightStroke: 'rgba(60,141,188,1)',
-          data: [28, 48, 40, 19, 86, 27, 90]
-        },
-        {
-          label: 'OF Aplicadas',
-          backgroundColor: 'rgba(210, 214, 222, 1)',
-          borderColor: 'rgba(210, 214, 222, 1)',
-          pointRadius: false,
-          pointColor: 'rgba(210, 214, 222, 1)',
-          pointStrokeColor: '#c1c7d1',
-          pointHighlightFill: '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
-          data: [65, 59, 80, 81, 56, 55, 40]
-        },
-      ]
-    }
-
-    var barChartCanvas = $('#barChart').get(0).getContext('2d')
-    var barChartData = $.extend(true, {}, areaChartData)
-    var temp0 = areaChartData.datasets[0]
-    var temp1 = areaChartData.datasets[1]
-    barChartData.datasets[0] = temp1
-    barChartData.datasets[1] = temp0
-
-    var barChartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-      datasetFill: false
-    }
-
-    new Chart(barChartCanvas, {
-      type: 'bar',
-      data: barChartData,
-      options: barChartOptions
-    })
-  </script>
-
-
 
 
 </body>

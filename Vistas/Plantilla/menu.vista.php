@@ -57,10 +57,10 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="index.php?ruta=publicar/verofer/verOfertas" class="nav-link">
+                <!-- <a href="index.php?ruta=publicar/verofer/verOfertas" class="nav-link">
                   <i class="nav-icon fas fa-eye"></i>
                   <p>Ver Ofertas</p>
-                </a>
+                </a> -->
               </li>
               <li class="nav-item">
                 <a href="index.php?ruta=publicar/Poferta/Poferta" class="nav-link">

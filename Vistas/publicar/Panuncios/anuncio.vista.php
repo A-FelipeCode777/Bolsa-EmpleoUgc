@@ -1,3 +1,7 @@
+<?php
+require_once "./Controladores/usuarios/usuarios.controller.php";
+
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -18,103 +22,78 @@
   </section>
   <!-- Main content -->
   <section class="content">
-    <!-- Default box -->
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Administración de Permisos</h3>
+                   <!-- Default box -->
+                   <div class="card">
+                      <div class="card-header">
+                        <a href="index.php?ruta=publicar/Panuncios/anuncio.crear" class="btn btn-success btn-sm">Nuevo Usuario</a>
+                      </div>
 
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-      </div>
-      <div class="card-body">
-        La administración de roles y ususarios, podras crear nuevos ususarios  y asignar permisos  nuevos ususarios de Administración del sistema .
-      </div>
-      <!-- /.card-body -->
+        <!-- Main content Tabla -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Gestión de Usuarios</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example2" class="table table-bordered table-hover">
+                                    <thead class="table-success">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Nombre Usuario</th>
+                                            <th>Correo Institucional</th>
+                                            <th>Rol</th>
+                                            <th>Teléfono</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-      <!-- /.card-footer-->
-    </div>
-    <!-- /.card -->
-
-  </section>
-  <!-- /.content -->
-  <!-- Main content Tabla -->
-  <section class="content">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <button class="btn btn-success btn-sm" type="button">Crear Usuario</button>
+                                    <?php
+                                     $Usuarios= UsuarioController::index();
+                                     foreach($Usuarios as $key => $Usuario){
+                                        echo ' <tr>
+																	<td>'.$Usuario["id"].'</td>
+																	<td>'.$Usuario["nombre_usuario"].'</td>
+																	<td>'.$Usuario["correo"].'</td>
+																	<td>'.$Usuario["rol"].'</td>
+																	<td>'.$Usuario["telefono"].'</td>
+																	<td>
+																		<a href="#" class="btn btn-warning btn-sm"><i class="fa fa-eye nav-icon"></i> <span>Consultar</a>
+																		<a href="#" class="btn btn-primary btn-sm"><i class="far fa-edit nav-icon"></i> <span></i> <span>Editar</a>
+																		<a href="#" class="btn btn-danger btn-sm" Id =""><i class="fa fa-trash nav-icon"></i> <span>Eliminar</span></a>
+																	</td>
+																</tr>';
+                                     }
+                                    ?>
+                                    <!-- Otros datos de candidatos aquí -->
+                                </tbody>
+                                    
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
             </div>
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example2" class="table table-bordered table-hover">
-                <thead class="table-success">
-                  <tr>
-                    <th>Nombre del Usuario</th>
-                    <th>Correo Institucional</th>
-                    <th>Rol</th>
-                    <th>Teléfono</th>
-                    <th>Acciones</th> <!-- Nueva columna para los botones -->
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Valentina Mojica chacon Suarez</td>
-                    <td>vel_65@mail.microsoft.es</td>
-                    <td>Asitente Ejecutor</td>
-                    <td>324000501</td>
-                    
-                    <td class="text-center">
-                      <button class="btn btn-info btn-sm" onclick="ver()">
-                        <i class="fas fa-eye"></i> <!-- Icono para ver -->
-                      </button>
-                      <button class="btn btn-danger btn-sm" onclick="eliminar()">
-                        <i class="fas fa-trash-alt"></i> <!-- Icono para eliminar -->
-                      </button>
-                      <button class="btn btn-success btn-sm" onclick="editar()">
-                        <i class="fas fa-edit"></i> <!-- Icono para editar -->
-                      </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Fredy Daniel Vega Zapata</td>
-                    <td>Fredi.Vega@microsoft.es</td>
-                    <td>Auxiliar de Control</td>
-                    <td>3245645415</td>
-                    
-                    <td class="text-center">
-                      <button class="btn btn-info btn-sm" onclick="ver()">
-                        <i class="fas fa-eye"></i> <!-- Icono para ver -->
-                      </button>
-                      <button class="btn btn-danger btn-sm" onclick="eliminar()">
-                        <i class="fas fa-trash-alt"></i> <!-- Icono para eliminar -->
-                      </button>
-                      <button class="btn btn-success btn-sm" onclick="editar()">
-                        <i class="fas fa-edit"></i> <!-- Icono para editar -->
-                      </button>
-                    </td>
-
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-        <!-- /.content-wrapper -->
-
-      </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
       <!-- /.content-wrapper -->
-       <!-- jQuery -->
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <!-- jquery -->
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+
+      </script>
     </div>
   </section>
 </div>
